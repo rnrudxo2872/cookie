@@ -7,6 +7,7 @@ var compression = require('compression')
 var template = require('./lib/template.js');
 var topicRouter = require('./routes/topic');
 var indexRouter = require('./routes/index');
+var loginRouter = require('./routes/login');
 var helmet = require('helmet');
 app.use(helmet());
 
@@ -36,6 +37,7 @@ const port = 3000;
 
 app.use('/',indexRouter);
 app.use('/topic',topicRouter);
+app.use('/login',loginRouter);
 
 
 app.use(function(req,res,next){
