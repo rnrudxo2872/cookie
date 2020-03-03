@@ -5,12 +5,13 @@ var fs = require('fs');
 var sanitizeHtml = require('sanitize-html');
 var template = require('../lib/template.js');
 
-router.get('/login', (req, res) => {
+
+router.get('/main', (req, res) => {
   title = `login`;
   var list = template.list(req.list, ``);
   var html = template.control_HTML(title, list, `<div id="article">
     <h2>${title}</h2>
-    <form action="/login_process" method="post">
+    <form action="/login/login_process" method="post">
     <p><input type="text" name="email" placeholder="email"></p>
     <p><input type="password" name="password" placeholder="password"></p>
     <p><input type="submit"></p>
@@ -22,16 +23,15 @@ router.get('/login', (req, res) => {
 }) //route,routing 갈림길에서 적당한 응답을 해주는 역할
 
 
-router.post('/login/login_process', (req, res) => {
+router.post('/login_process', (req, res) => {
   var post = req.body;
   var id = post.id;
-  filleredId = path.parse(id).base;
-  if (post.email === 'rnrudxo@gmail.com' && post.password === '111111') {
+  if(post.email === 'rnrudxo@gmail.com' && post.password === '111111') {
     res.writeHead(302, {
-      'Set-Cookie': [
+      'Set-Cookie':[
         `email=${post.email}`,
         `password=${post.password}`,
-        `nickname=order`
+        `nickname=Koo`
       ],
       Location:`/`
     })

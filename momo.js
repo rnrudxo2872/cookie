@@ -36,8 +36,9 @@ app.use(express.static('public')); //public 디렉토리 안에서 static 파일
 const port = 3000;
 
 app.use('/',indexRouter);
-app.use('/topic',topicRouter);
 app.use('/login',loginRouter);
+app.use('/topic',topicRouter);
+
 
 
 app.use(function(req,res,next){
