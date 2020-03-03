@@ -9,7 +9,7 @@ router.get('/page_create', (req, res) => {
     title = `WEB - create`;
     let descrip = '안녕? 경태페이지란다';
     var list = template.list(req.list, ``);
-    var html = template.control_HTML(title, list, `<form action="/create_process" method="POST">
+    var html = template.control_HTML(title, list, `<form action="/topic/create_process" method="POST">
     <p><input type="text" name="title" placeholder="title"></p>
     <p>
         <textarea name="description" id="" cols="30" rows="10" placeholder="discription"></textarea>
