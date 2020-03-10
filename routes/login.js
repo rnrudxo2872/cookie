@@ -4,13 +4,14 @@ var path = require('path');
 var fs = require('fs');
 var sanitizeHtml = require('sanitize-html');
 var template = require('../lib/template.js');
-var authIsOwner = require('../lib/authLogin')
+var authIsOwner = require('../lib/authLogin');
+var cookie = require('cookie');
 
 
 router.get('', (req, res) => {
   title = `login`;
-  var list = template.list(req.list, ``);
-  var IsOwner = authIsOwner.IsOwner(req,res);
+  // var list = template.list(req.list, ``);
+  // var IsOwner = authIsOwner.IsOwner(req,res);
   console.log(IsOwner);
   var html = template.control_HTML(title, list, `<div id="article">
     <h2>${title}</h2>
