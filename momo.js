@@ -8,9 +8,10 @@ var template = require('./lib/template.js');
 var topicRouter = require('./routes/topic');
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
+var authIsOwner = require('./lib/authLogin');
+var cookie = require('cookie');
 var helmet = require('helmet');
 app.use(helmet());
-
 
 app.use(compression());//Content-Encoding: gzip zip으로 압축하고 보내고 웹브라우저는 해제해서 사용
                       //데이터 트레픽 줄음

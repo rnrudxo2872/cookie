@@ -4,8 +4,12 @@ var path = require('path');
 var fs = require('fs');
 var sanitizeHtml = require('sanitize-html');
 var template = require('../lib/template.js');
+var authIsOwner = require('../lib/authLogin');
+var cookie = require('cookie');
 
 router.get('/page_create', (req, res) => {
+  var IsOwner = authIsOwner.IsOwner(req,res);
+  console.log(IsOwner);
     title = `WEB - create`;
     let descrip = '안녕? 경태페이지란다';
     var list = template.list(req.list, ``);
